@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="./css/style.css" rel="stylesheet" />
+    <title>Bảng điểm - Quốc tế Á Châu</title>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Hiệu ứng hoa giấy -->
+        <canvas class="confetti"></canvas>
+    
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="header-container">
+                    <img class="header-logo" src="./img/logo.png" alt="" />
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main -->
+        <div class="main">
+            <div class="main-content">
+                <h1 class="main-title">Vòng quay Gọi tên</h1>
+                <section class="luckywheel">
+                    <div class="luckywheel-container">
+                        <ul class="luckywheel-list">
+                            <li class="luckywheel-item">
+                                <span style="transform: rotate(0turn); transform-origin: 50% 250px;">
+                                    <p id="curve" style="transform: rotate(-90deg);">
+                                        <span style="font-size: 20px;text-align: right;width: 50%;padding-left: 0px;padding-top: 0px;text-wrap: nowrap;float: left;margin-top: -17px;transform-origin: 50% 250px;">Bạch Tuyết</span>
+                                    </p>
+                                </span>
+                            </li>
+                            <li class="luckywheel-item">
+                                <span style="transform: rotate(0.333333turn); transform-origin: 50% 250px;">
+                                    <p id="curve" style="transform: rotate(-90deg);">
+                                        <span style="font-size: 20px;text-align: right;width: 50%;padding-left: 0px;padding-top: 0px;text-wrap: nowrap;float: left;margin-top: -17px;transform-origin: 50% 250px;">Bạch Tuyết</span>
+                                    </p>
+                                </span>
+                            </li>
+                            <li class="luckywheel-item">
+                                <span style="transform: rotate(0.666667turn); transform-origin: 50% 250px;">
+                                    <p id="curve" style="transform: rotate(-90deg);">
+                                        <span style="font-size: 20px;text-align: right;width: 50%;padding-left: 0px;padding-top: 0px;text-wrap: nowrap;float: left;margin-top: -17px;transform-origin: 50% 250px;">Bạch Tuyết</span>
+                                    </p>
+                                </span>
+                            </li>
+                        </ul>
+                    </div>
+                    <a class="luckywheel-btn">Quay</a>
+                </section>
+
+                <!-- Phần Edit tên người chơi và điểm -->
+                <div class="edit" onclick="DisplayEdit()">📋</div>
+                <div class="edit-popup">
+                    <div class="box">
+                        <textarea class="edit-area"></textarea>
+                        <button class="cancel-button" onclick="CloseEdit()">Hủy</button>
+                        <button class="ok-button" onclick="UpdateNamesAndScores()">OK</button>
+                    </div>
+                </div>
+
+                <!-- Phần endgame -->
+                <div class="end-popup">
+                    <div class="leaderboard">
+                        
+                    </div>
+                    
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p class="footer-content-first">Công cụ trực tuyến cho Trường Quốc tế Á Châu</p>
+                <br>
+                <p>Copyright © 2024 The Asian International School. All rights reserved</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Javascript script -->
+    <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+    <script src="./js/script.js"></script>
+
+    <!-- Preload image -->
+    <script>
+        window.onload = function() {
+            const preLoading = new Image();
+            preLoading.src = './img/podium-bg.jpg';
+        }
+    </script>
+     
+</body>
+</html>
