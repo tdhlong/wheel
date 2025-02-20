@@ -26,34 +26,26 @@
             <div class="main-content">
                 <h1 class="main-title">Vòng quay may mắn</h1>
                 
-                <div id="wheel-container">
-                    <div id="wheel">
-                        <div id="inner-wheel">
-                            <div class="sec">
-                                <span class="fa fa-bell-o">Nguyễn Văn Hùng</span>
-                            </div>
-                            <div class="sec">
-                                <span class="fa fa-comment-o">Nguyễn Nhật Minh</span>
-                            </div>
-                            <div class="sec">
-                                <span class="fa fa-smile-o">Hồ Nguyễn Bảo Quốc</span>
-                            </div>
-                            <div class="sec">
-                                <span class="fa fa-heart-o">Trần Đỗ Hoàng Long</span>
-                            </div>
-                            <div class="sec">
-                                <span class="fa fa-star-o">Trần Thị Ánh Mai</span>
-                            </div>
-                            <div class="sec">
-                                <span class="fa fa-lightbulb-o">Đỗ Văn Hoàng</span>
-                            </div>
-                        </div>
-                      
-                        <a class="luckywheel-btn">Quay</a>
-                      
-                        <div id="shine"></div>
+                <div class="header">
+                    <!-- <h1>Winner</h1> -->
+                    <p id="winner" style="display: none;">None</p>
+                </div>
+            
+                <div class="wheel">
+                    <canvas class="" id="canvas" width="700" height="700"></canvas>
+                    <div class="center-circle" onclick="Spin()">
+                        <span class="center-text">Quay</span>
+                        <div class="triangle"></div>
                     </div>
-                    <div id="txt"></div>
+                </div>
+            
+                <div class="inputArea" onchange="CreateWheel()">
+                    <textarea rows="20" cols="30">Nguyễn Văn Hùng
+Nguyễn Nhật Minh
+Hồ Nguyễn Bảo Quốc
+Trần Đỗ Hoàng Long
+Trần Thị Ánh Mai
+Đỗ Văn Hoàng</textarea>
                 </div>
 
                 <!-- Phần Edit tên người chơi và điểm -->
@@ -62,10 +54,23 @@
                     <div class="box">
                         <textarea class="edit-area"></textarea>
                         <button class="cancel-button" onclick="CloseEdit()">Hủy</button>
-                        <button class="ok-button" onclick="UpdateNamesAndScores()">OK</button>
+                        <button class="ok-button" onclick="UpdateNames()">OK</button>
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+        <!-- Announce winner -->
+        <div class="announce-container">
+            <div class="announce-popup">
+                <div class="announce-header">Chúc mừng, người được chọn là</div>
+                <div class="announce-content">
+                    <p class="announce-content-winner"></p>
+                </div>
+                <div class="announce-action">
+                    <button class="announce-action-button" onclick="CloseAnnounceWinner()">OK</button>
+                </div>
             </div>
         </div>
 
