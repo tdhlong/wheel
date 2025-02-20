@@ -32,29 +32,24 @@
                 </div>
             
                 <div class="wheel">
-                    <canvas class="" id="canvas" width="700" height="700"></canvas>
+                    <canvas class="" id="canvas" width="550" height="550"></canvas>
                     <div class="center-circle" onclick="Spin()">
                         <span class="center-text">Quay</span>
                         <div class="triangle"></div>
                     </div>
                 </div>
             
-                <div class="inputArea" onchange="CreateWheel()">
-                    <textarea rows="20" cols="30">Nguyễn Văn Hùng
-Nguyễn Nhật Minh
-Hồ Nguyễn Bảo Quốc
-Trần Đỗ Hoàng Long
-Trần Thị Ánh Mai
-Đỗ Văn Hoàng</textarea>
-                </div>
-
-                <!-- Phần Edit tên người chơi và điểm -->
+                <!-- Phần Edit tên người chơi -->
                 <div class="edit" onclick="DisplayEdit()">📋</div>
                 <div class="edit-popup">
                     <div class="box">
-                        <textarea class="edit-area"></textarea>
+                        <textarea class="edit-area">Người chơi 1
+Người chơi 2
+Người chơi 3
+Người chơi 4
+Người chơi 5</textarea>
                         <button class="cancel-button" onclick="CloseEdit()">Hủy</button>
-                        <button class="ok-button" onclick="UpdateNames()">OK</button>
+                        <button class="ok-button" onclick="CreateWheel()">OK</button>
                     </div>
                 </div>
 

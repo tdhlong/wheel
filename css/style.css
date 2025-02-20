@@ -125,7 +125,7 @@ ul, li {
     border-bottom: 20px solid transparent;
     border-right: 30px solid #e44025;
     top: 50%;
-    right: -350%;
+    right: -315%;
     transform: translateY(-50%);
     cursor: default
 }
