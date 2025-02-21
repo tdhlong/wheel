@@ -145,7 +145,7 @@ function Draw() {
           ctx.fillStyle = "#fff";
       }
       ctx.font = "20px Quicksand";
-      ctx.fillText(items[i], 130 + 20, 10);
+      ctx.fillText(items[i], 130 + 50, 10);
       ctx.restore();
 
       // Check winner
@@ -231,7 +231,7 @@ function Spin() {
       return
   }
   currentDeg = 0;
-  maxRotation = RandomRange(360 * 3, 360 * 15);
+  maxRotation = RandomRange(360 * 14, 360 * 15);
   pause = false;
   window.requestAnimationFrame(Animate);
 }
