@@ -157,7 +157,7 @@ function Draw() {
 }
 
 let speed = 0;
-let maxRotation = RandomRange(360 * 3, 360 * 6);
+let maxRotation = RandomRange(360 * 5, 360 * 10);
 let pause = false;
 let announceShown = false; // đảm bảo chỉ hiện thông báo 1 lần sau khi dừng quay
 
@@ -231,7 +231,7 @@ function Spin() {
       return
   }
   currentDeg = 0;
-  maxRotation = RandomRange(360 * 10, 360 * 10);
+  maxRotation = RandomRange(360 * 5, 360 * 10);
   pause = false;
   window.requestAnimationFrame(Animate);
 }
