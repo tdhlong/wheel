@@ -145,7 +145,7 @@ function Draw() {
           ctx.fillStyle = "#fff";
       }
       ctx.font = "20px Quicksand";
-      ctx.fillText(items[i], 130 + 50, 10);
+      ctx.fillText(items[i], 130 + 20, 10);
       ctx.restore();
 
       // Check winner
@@ -186,11 +186,11 @@ function Animate() {
   if (pause) {
     // Nếu vòng quay đã dừng và thông báo chưa được hiển thị, gọi hàm hiển thị thông báo
     if (!announceShown) {
-      const jsConfetti = new JSConfetti();
+      // const jsConfetti = new JSConfetti();
       const spinMusic = document.getElementById("spin-music");
       
-      jsConfetti.addConfetti();
-      announceSound.play();
+      // jsConfetti.addConfetti();
+      // announceSound.play();
       fadeOutAudio(spinMusic, 2000);
       // spinMusic.currentTime = 0;
 
@@ -231,7 +231,7 @@ function Spin() {
       return
   }
   currentDeg = 0;
-  maxRotation = RandomRange(360 * 14, 360 * 15);
+  maxRotation = RandomRange(360 * 10, 360 * 10);
   pause = false;
   window.requestAnimationFrame(Animate);
 }
