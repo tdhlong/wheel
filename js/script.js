@@ -162,11 +162,13 @@ let pause = false;
 let announceShown = false; // đảm bảo chỉ hiện thông báo 1 lần sau khi dừng quay
 
 function Animate() {
+  const announceSound = document.getElementById("announce-sound");
   if (pause) {
     // Nếu vòng quay đã dừng và thông báo chưa được hiển thị, gọi hàm hiển thị thông báo
     if (!announceShown) {
       const jsConfetti = new JSConfetti();
       jsConfetti.addConfetti();
+      announceSound.play();
 
       // Sau 2 giây, kích hoạt pháo giấy lần thứ hai
       setTimeout(() => {
