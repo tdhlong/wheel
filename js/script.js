@@ -102,9 +102,9 @@ function CreateWheel() {
   CloseEdit();
 }
 
-
 Draw();
 
+// Vẽ vòng quay
 function Draw() {
   ctx.beginPath();
   ctx.arc(centerX, centerY, radius, ToRad(0), ToRad(360));
@@ -161,14 +161,38 @@ let maxRotation = RandomRange(360 * 3, 360 * 6);
 let pause = false;
 let announceShown = false; // đảm bảo chỉ hiện thông báo 1 lần sau khi dừng quay
 
+function fadeOutAudio(audioElement, duration) {
+  // duration: thời gian giảm âm lượng (ms)
+  const fadeInterval = 50; // khoảng thời gian giữa các bước giảm
+  const steps = duration / fadeInterval;
+  const volumeStep = audioElement.volume / steps;
+
+  const fadeAudio = setInterval(() => {
+    if (audioElement.volume - volumeStep > 0) {
+      audioElement.volume = Math.max(0, audioElement.volume - volumeStep);
+    } else {
+      audioElement.volume = 0;
+      audioElement.pause();
+      audioElement.currentTime = 0;
+      clearInterval(fadeAudio);
+    }
+  }, fadeInterval);
+}
+
+
 function Animate() {
   const announceSound = document.getElementById("announce-sound");
+  
   if (pause) {
     // Nếu vòng quay đã dừng và thông báo chưa được hiển thị, gọi hàm hiển thị thông báo
     if (!announceShown) {
       const jsConfetti = new JSConfetti();
+      const spinMusic = document.getElementById("spin-music");
+      
       jsConfetti.addConfetti();
       announceSound.play();
+      fadeOutAudio(spinMusic, 2000);
+      // spinMusic.currentTime = 0;
 
       // Sau 2 giây, kích hoạt pháo giấy lần thứ hai
       setTimeout(() => {
@@ -193,14 +217,21 @@ function Animate() {
 
 function Spin() {
   // Reset trạng thái thông báo
+  const spinMusic = document.getElementById("spin-music");
+  const spinSound = document.getElementById("spin-sound");
+
   announceShown = false;
   document.querySelector('.announce-container').style.display = 'none';
+  
+  spinMusic.play();
+  spinMusic.volume = 1;
+  spinSound.play();
 
   if (speed != 0) {
       return
   }
   currentDeg = 0;
-  maxRotation = RandomRange(360 * 3, 360 * 6);
+  maxRotation = RandomRange(360 * 3, 360 * 15);
   pause = false;
   window.requestAnimationFrame(Animate);
 }
